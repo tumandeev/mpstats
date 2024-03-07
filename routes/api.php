@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::prefix("wildberries")->group(function (){
+    Route::get("/products-by-search", [\App\Http\Controllers\ProductsBySearchController::class, "get"]);
+});

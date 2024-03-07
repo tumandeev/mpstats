@@ -33,19 +33,6 @@ services:
     - dbdata:/var/lib/mysql
     networks:
       - mpstats
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    restart: always
-    environment:
-      PMA_HOST: mysql
-      PMA_USER: user
-      PMA_PASSWORD: root
-    ports:
-      - "8888:80"
-    networks:
-      - mpstats
-
   php:
     build:
       context: .
@@ -81,8 +68,6 @@ services:
   redis:
     image: redis:latest
     restart: always
-    ports:
-      - "6379:6379"
     volumes:
       - cache:/data
     environment:
