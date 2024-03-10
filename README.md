@@ -8,7 +8,7 @@
 cp .env.example .env
 
 docker-compose up -d
-docker-compose run composer
+docker-compose run composer install
 docker-compose run artisan migrate
 
 ```
